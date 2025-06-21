@@ -5,7 +5,7 @@ date: "2025-01-21"
 language: "ja"
 publisher: "出版社名"
 rights: "© 2025 著者名"
-cover-image: "cover.jpg"
+# cover-image: "cover.jpg"
 description: "Markdownから作成したサンプル電子書籍です。"
 subject: "技術書"
 identifier:
