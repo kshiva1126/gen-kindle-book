@@ -22,6 +22,10 @@ while [[ $# -gt 0 ]]; do
             FORMAT="both"
             shift
             ;;
+        --eisvogel)
+            USE_EISVOGEL="true"
+            shift
+            ;;
         -*)
             echo "Unknown option $1"
             exit 1
@@ -39,7 +43,8 @@ if [ -z "$BOOK_DIR" ]; then
     echo "  --epub     Generate EPUB (default)"
     echo "  --pdf      Generate PDF"
     echo "  --both     Generate both EPUB and PDF"
-    echo "Example: $0 --pdf books/sample"
+    echo "  --eisvogel Use Eisvogel template for PDF (premium quality)"
+    echo "Example: $0 --pdf --eisvogel books/sample"
     exit 1
 fi
 
@@ -112,10 +117,13 @@ generate_pdf() {
         PANDOC_ARGS="$PANDOC_ARGS --metadata-file=$METADATA_FILE"
     fi
     
-# LaTeXテンプレートをスキップしてシンプルなPDF生成を行う
-    # if [ -f "$BOOK_DIR/template.tex" ]; then
-    #     PANDOC_ARGS="$PANDOC_ARGS --template=$BOOK_DIR/template.tex"
-    # fi
+    # テンプレート選択
+    if [ "$USE_EISVOGEL" = "true" ]; then
+        PANDOC_ARGS="$PANDOC_ARGS --template=templates/eisvogel.latex"
+        PANDOC_ARGS="$PANDOC_ARGS --listings"
+    elif [ -f "$BOOK_DIR/template.tex" ]; then
+        PANDOC_ARGS="$PANDOC_ARGS --template=$BOOK_DIR/template.tex"
+    fi
     
     OUTPUT_FILE="$BOOK_OUTPUT_DIR/${BOOK_NAME}.pdf"
     

@@ -123,11 +123,14 @@ cover-image: "cover.jpg"
 # EPUB生成（デフォルト）
 ./convert.sh books/あなたの書籍名
 
-# PDF生成
+# PDF生成（標準テンプレート）
 ./convert.sh --pdf books/あなたの書籍名
 
-# EPUB・PDF両方生成
-./convert.sh --both books/あなたの書籍名
+# PDF生成（Eisvogelテンプレート - 高品質）
+./convert.sh --pdf --eisvogel books/あなたの書籍名
+
+# EPUB・PDF両方生成（Eisvogelテンプレート）
+./convert.sh --both --eisvogel books/あなたの書籍名
 ```
 
 ### オプション
@@ -135,6 +138,7 @@ cover-image: "cover.jpg"
 - `--epub`: EPUB形式で生成（デフォルト）
 - `--pdf`: PDF形式で生成
 - `--both`: EPUB・PDF両方を生成
+- `--eisvogel`: Eisvogelテンプレートを使用（プロフェッショナル品質のPDF）
 
 ## 出力ファイル
 
@@ -186,9 +190,23 @@ output/
 
 ## カスタマイズ
 
-### LaTeXテンプレートのカスタマイズ
+### PDFテンプレートの選択
 
-PDF出力のレイアウトをカスタマイズしたい場合は、書籍ディレクトリに `template.tex` ファイルを配置してください。サンプルは `books/sample/template.tex` を参考にしてください。
+このプロジェクトでは3つのPDFテンプレートオプションを提供します：
+
+1. **標準テンプレート**（デフォルト）
+   - シンプルでファイルサイズが小さい
+   - 基本的なPDF生成
+
+2. **Eisvogelテンプレート**（`--eisvogel`オプション）
+   - プロフェッショナル品質のレイアウト
+   - 美しいタイトルページ
+   - コードブロックのシンタックスハイライト
+   - 高品質なタイポグラフィ
+
+3. **カスタムテンプレート**
+   - 書籍ディレクトリに `template.tex` ファイルを配置
+   - サンプルは `books/sample/template.tex` を参考
 
 ### CSSスタイルのカスタマイズ
 

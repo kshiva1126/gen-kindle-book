@@ -13,6 +13,40 @@ RUN apk add --no-cache \
 # XeLaTeX用の日本語パッケージをインストール
 RUN tlmgr install xecjk fontspec
 
+# Eisvogelテンプレートに必要なLaTeXパッケージをインストール
+RUN tlmgr install \
+    adjustbox \
+    babel-german \
+    background \
+    bidi \
+    collectbox \
+    csquotes \
+    everypage \
+    filehook \
+    footmisc \
+    footnotebackref \
+    framed \
+    fvextra \
+    letltxmacro \
+    ly1 \
+    mdframed \
+    mweights \
+    needspace \
+    pagecolor \
+    sourcecodepro \
+    sourcesanspro \
+    titling \
+    ucharcat \
+    unicode-math \
+    upquote \
+    xurl \
+    zref \
+    draftwatermark \
+    awesomebox \
+    tcolorbox \
+    listings \
+    koma-script
+
 WORKDIR /workspace
 
 COPY . /workspace
