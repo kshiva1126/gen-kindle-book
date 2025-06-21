@@ -1,0 +1,19 @@
+---
+title: "サンプル電子書籍"
+author: "著者名"
+date: "2025-01-21"
+language: "ja"
+publisher: "出版社名"
+rights: "© 2025 著者名"
+cover-image: "cover.jpg"
+description: "Markdownから作成したサンプル電子書籍です。"
+subject: "技術書"
+identifier:
+  - scheme: "ISBN"
+    text: "978-0-00000-000-0"
+creator:
+  - role: "author"
+    text: "著者名"
+  - role: "editor" 
+    text: "編集者名"
+---

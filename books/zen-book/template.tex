@@ -1,0 +1,98 @@
+\documentclass[12pt,a4paper]{article}
+
+% 日本語設定
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Sans CJK JP}
+\setCJKsansfont{Noto Sans CJK JP}
+\setCJKmonofont{Noto Sans CJK JP}
+
+% パッケージ
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+
+% ページ設定
+\geometry{
+    top=3cm,
+    bottom=3cm,
+    left=2.5cm,
+    right=2.5cm
+}
+
+% ヘッダー・フッター
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\leftmark}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% 見出しスタイル
+\titleformat{\section}
+  {\Large\bfseries\color{blue!70!black}}
+  {\thesection}{1em}{}
+  [\titlerule]
+
+\titleformat{\subsection}
+  {\large\bfseries\color{blue!50!black}}
+  {\thesubsection}{1em}{}
+
+% 目次スタイル
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+% コードブロック設定
+\lstset{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    rulecolor=\color{gray!30},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=2
+}
+
+% ハイパーリンク設定
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={$title$},
+    pdfauthor={$author$}
+}
+
+% 行間設定
+\linespread{1.5}
+
+\begin{document}
+
+% タイトルページ
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    {\huge\bfseries $title$ \par}
+    \vspace{1.5cm}
+    
+    {\Large $author$ \par}
+    \vspace{1cm}
+    
+    {\large $date$ \par}
+    
+    \vfill
+    
+    {\large $publisher$ \par}
+\end{titlepage}
+
+% 目次
+\tableofcontents
+\newpage
+
+% 本文
+$body$
+
+\end{document}
